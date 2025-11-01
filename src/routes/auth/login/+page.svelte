@@ -10,7 +10,7 @@
 
 <section id="login" class="flex-none md:flex items-center h-screen">
   <div
-    class="h-1/2 lg:h-full lg:w-3/4 w-full bg-cover bg-center"
+    class="h-1/2 md:h-full lg:w-3/4 w-full bg-cover bg-center"
     style={`background-image: url(${main_image});`}
   ></div>
   <div
