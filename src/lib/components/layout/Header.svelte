@@ -75,11 +75,17 @@
                 <p class="text-lg text-[#06038D]">Hi, Guest</p>
                 <div>
                     <a
+                        on:click={() => {
+                            navOpen = false;
+                        }}
                         href="/auth/login"
                         class="text-lg border rounded-full px-3 py-2 bg-[#FF671F] text-white"
                         aria-label="login user">Login</a
                     >
                     <a
+                        on:click={() => {
+                            navOpen = false;
+                        }}
                         href="/auth/register"
                         class="text-lg border rounded-full px-3 py-2 bg-[#046A38] text-white"
                         aria-label="register user">Register</a
@@ -113,40 +119,41 @@
             ></button>
 
             <!-- Drawer Panel -->
-            <div
-                class="relative h-full w-full md:w-2/3 lg:w-1/4 bg-white"
-            >
-            <div class="p-6 flex flex-col h-full overflow-y-auto">
-                <div class="flex justify-between items-center">
-                    <h2 class="text-xl font-medium">Welcome,</h2>
-                    <button
-                    aria-label="close drawer"
+            <div class="relative h-full w-full md:w-2/3 lg:w-1/4 bg-white">
+                <div class="p-6 flex flex-col h-full overflow-y-auto">
+                    <div class="flex justify-between items-center">
+                        <h2 class="text-xl font-medium">Welcome,</h2>
+                        <button
+                            aria-label="close drawer"
                             class="text-gray-500 hover:text-gray-800"
                             on:click={() => (userNavOpen = false)}
                         >
                             <i class="fa-solid fa-times text-2xl"></i>
                         </button>
-                </div>
-                <h3 class="text-lg font-medium">Guest</h3>
-                <p class="text-gray-600 text-base">
-                        Manage your account, view bookings, and personalize your travel experience.
+                    </div>
+                    <h3 class="text-lg font-medium">Guest</h3>
+                    <p class="text-gray-600 text-base">
+                        Manage your account, view bookings, and personalize your
+                        travel experience.
                     </p>
                     <div class="flex flex-col gap-3 mt-6">
                         <a
+                            on:click={() => (userNavOpen = false)}
                             href="/auth/login"
                             class="text-lg border rounded-full px-5 py-3 bg-[#FF671F] text-white text-center hover:bg-[#e85b16]"
                         >
                             Login
                         </a>
                         <a
+                            on:click={() => (userNavOpen = false)}
                             href="/auth/register"
                             class="text-lg border rounded-full px-5 py-3 bg-[#046A38] text-white text-center hover:bg-[#03572e]"
                         >
                             Register
                         </a>
                     </div>
+                </div>
             </div>
-        </div>
         </div>
     {/if}
 </header>
