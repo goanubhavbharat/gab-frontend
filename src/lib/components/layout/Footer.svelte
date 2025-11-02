@@ -2,7 +2,7 @@
     import Logo from "$lib/components/Logo.svelte";
 </script>
 
-<footer class="mt-3 text-black relative bg-[#f1f5f9]">
+<footer class="text-black relative bg-[#f1f5f9]">
     <nav class="p-6 grid grid-cols-1 md:grid-cols-3 gap-6 relative z-0">
         <div id="footer-primary">
             <!-- Logo Section -->
