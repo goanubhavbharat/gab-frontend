@@ -2,8 +2,8 @@
     import Logo from "$lib/components/Logo.svelte";
 </script>
 
-<footer class="mt-3 text-black relative bg-[#f1f5f9]">
-    <nav class="p-6 grid grid-cols-1 md:grid-cols-3 gap-6 relative z-0">
+<footer class="text-black relative bg-[#f1f5f9]">
+    <nav class="px-4 py-6 grid grid-cols-1 md:grid-cols-3 gap-6 relative z-0">
         <div id="footer-primary">
             <!-- Logo Section -->
 
@@ -11,7 +11,7 @@
                 id="home-footer"
                 href="/"
                 aria-label="Go to GoAnubhavBharat home page"
-                class="flex w-48 lg:w-60"
+                class="flex w-48 lg:w-56"
             >
                 <Logo />
                 <sup class="text-[10px]">TM</sup>
