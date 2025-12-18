@@ -3,7 +3,7 @@ import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad =  async ({ url , cookies, }) => {
 
-    const sessionToken =  cookies.get('session_token');
+    const sessionToken =  cookies.get('sessionId');
 
     if (!sessionToken) {
         throw error(401, 'Unauthorized: No session token found');
