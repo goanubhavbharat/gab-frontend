@@ -5,6 +5,11 @@
     src: url(/src/lib/assets/fonts/Zoho\ Puvi\ Regular.ttf);
 }
 
+@font-face {
+    font-family: 'Yatra-One';
+    src: url(/src/lib/assets/fonts/YatraOne-Regular.ttf);
+}
+
 * {
     font-family: 'ZohoPuvi';
 }
