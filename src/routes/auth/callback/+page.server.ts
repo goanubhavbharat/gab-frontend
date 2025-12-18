@@ -1,11 +1,7 @@
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
-import { goto } from '$app/navigation';
 
 export const load: PageServerLoad =  async ({ url , cookies, }) => {
-
-    const firstName = url.searchParams.get("firstName");
-    const lastName = url.searchParams.get("lastName");
 
     const sessionToken =  cookies.get('session_token');
 
@@ -14,7 +10,7 @@ export const load: PageServerLoad =  async ({ url , cookies, }) => {
     }
 
     return {
-        firstName: firstName,
-        lastName: lastName,
+        firstName: url.searchParams.get("firstName"),
+        lastName: url.searchParams.get("lastName"),
     };
 };

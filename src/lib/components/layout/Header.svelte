@@ -1,5 +1,7 @@
 <script lang="ts">
+    import { goto } from "$app/navigation";
     import Logo from "$lib/components/Logo.svelte";
+    import { authStorage } from "$lib/shared/auth.svelte";
 
     export let navOpen = false;
     export let userNavOpen = false;
@@ -22,7 +24,7 @@
             class="md:hidden rounded"
             aria-label="header mobile menu"
             aria-expanded={navOpen}
-            on:click={() => {
+            onclick={() => {
                 navOpen = !navOpen;
             }}
         >
@@ -45,7 +47,7 @@
             <li class="relative">
                 <button
                     class="text-lg flex items-center"
-                    on:click={() => {}}
+                    onclick={() => {}}
                     aria-label="explore india by states"
                 >
                     Explore
@@ -55,7 +57,7 @@
             <li class="relative">
                 <button
                     class="text-lg flex items-center"
-                    on:click={() => {}}
+                    onclick={() => {}}
                     aria-label="explore india by states"
                 >
                     Destinations
@@ -65,7 +67,7 @@
             <li class="relative">
                 <button
                     class="text-lg flex items-center"
-                    on:click={() => {}}
+                    onclick={() => {}}
                     aria-label="explore india by states"
                 >
                     Essentials
@@ -75,7 +77,7 @@
                 <p class="text-lg text-[#06038D]">Hi, Guest</p>
                 <div>
                     <a
-                        on:click={() => {
+                        onclick={() => {
                             navOpen = false;
                         }}
                         href="/auth/login"
@@ -83,7 +85,7 @@
                         aria-label="login user">Login</a
                     >
                     <a
-                        on:click={() => {
+                        onclick={() => {
                             navOpen = false;
                         }}
                         href="/auth/register"
@@ -100,9 +102,9 @@
     >
         <button
             class="border rounded-full px-4 py-2"
-            on:click={() => {
+            onclick={() => {
                 userNavOpen = !userNavOpen;
-            }}>Hi, Guest</button
+            }}>Hi, {$authStorage.firstName}</button
         >
         <div></div>
     </section>
@@ -114,7 +116,7 @@
             <!-- Background Overlay -->
             <button
                 aria-label="close drawer"
-                on:click={() => (userNavOpen = false)}
+                onclick={() => (userNavOpen = false)}
                 class="absolute inset-0 bg-gray-300 opacity-50 backdrop-blur-sm transition-opacity"
             ></button>
 
@@ -126,31 +128,59 @@
                         <button
                             aria-label="close drawer"
                             class="text-gray-500 hover:text-gray-800"
-                            on:click={() => (userNavOpen = false)}
+                            onclick={() => (userNavOpen = false)}
                         >
                             <i class="fa-solid fa-times text-2xl"></i>
                         </button>
                     </div>
-                    <h3 class="text-lg font-medium">Guest</h3>
+                    <h3 class="text-lg font-medium">
+                        {$authStorage.firstName}
+                    </h3>
                     <p class="text-gray-600 text-base">
                         Manage your account, view bookings, and personalize your
                         travel experience.
                     </p>
                     <div class="flex flex-col gap-3 mt-6">
-                        <a
-                            on:click={() => (userNavOpen = false)}
-                            href="/auth/login"
-                            class="text-lg border rounded-full px-5 py-3 bg-[#FF671F] text-white text-center hover:bg-[#e85b16]"
-                        >
-                            Login
-                        </a>
-                        <a
-                            on:click={() => (userNavOpen = false)}
-                            href="/auth/register"
-                            class="text-lg border rounded-full px-5 py-3 bg-[#046A38] text-white text-center hover:bg-[#03572e]"
-                        >
-                            Register
-                        </a>
+                        {#if $authStorage.loggedIn == false}
+                            <a
+                                onclick={() => (userNavOpen = false)}
+                                href="/auth/login"
+                                class="text-lg border rounded-full px-5 py-3 bg-[#FF671F] text-white text-center hover:bg-[#e85b16]"
+                            >
+                                Login
+                            </a>
+                            <a
+                                onclick={() => (userNavOpen = false)}
+                                href="/auth/register"
+                                class="text-lg border rounded-full px-5 py-3 bg-[#046A38] text-white text-center"
+                            >
+                                Register
+                            </a>
+                        {:else}
+                            <!-- <a
+                                onclick={() => (userNavOpen = false)}
+                                href="/in/{username}"
+                                class="text-lg border rounded-full px-5 py-3 bg-[#FF671F] text-white text-center"
+                            >
+                                Profile
+                            </a>
+                            <a
+                                onclick={() => (userNavOpen = false)}
+                                href="/in/{username}/trips"
+                                class="text-lg border rounded-full px-5 py-3 bg-[#046A38] text-white text-center"
+                            >
+                                Trips
+                            </a> -->
+                            <button
+                                onclick={() => {
+                                    userNavOpen = false;
+                                    goto("/auth/logout");
+                                }}
+                                class="text-lg border rounded-full px-5 py-3 bg-red-600 text-white text-center hover:bg-red-800"
+                            >
+                                Logout
+                            </button>
+                        {/if}
                     </div>
                 </div>
             </div>

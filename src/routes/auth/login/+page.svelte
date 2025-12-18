@@ -14,7 +14,7 @@
     style={`background-image: url(${main_image});`}
   ></div>
   <div
-    class="h-1/2 lg:w-1/4 flex flex-col bg-white p-18 md:p-24 rounded-md items-center"
+    class="h-1/2 lg:w-1/4 flex flex-col bg-white p-15 rounded-md items-center"
   >
     <h1 class="text-3xl font-medium">Sign in</h1>
     <h2>to access portal via</h2>
