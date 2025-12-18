@@ -6,7 +6,6 @@
 	import Header from "$lib/components/layout/Header.svelte";
 	import { onMount } from "svelte";
 	import { authStorage } from "$lib/shared/auth.svelte";
-    import { goto } from "$app/navigation";
 
 	let { children } = $props();
 
@@ -18,7 +17,6 @@
 			authStorage.set({ firstName: firstName, loggedIn: true });
 		} else {
 			authStorage.set({ firstName: "Guest", loggedIn: false });
-			goto('/auth/logout');
 		}
 	});
 </script>
