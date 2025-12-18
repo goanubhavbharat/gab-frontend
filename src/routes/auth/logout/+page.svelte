@@ -13,3 +13,5 @@
         goto("/");
     });
 </script>
+
+<div>Logging out…</div>

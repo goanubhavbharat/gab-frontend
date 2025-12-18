@@ -1,13 +1,18 @@
+import { goto } from "$app/navigation";
+import { PRIVATE_API_URL } from "$env/static/private";
 import type { PageServerLoad } from "./$types";
 
-export const load: PageServerLoad= async ({ cookies }) => {
-
+export const load: PageServerLoad = async ({ cookies }) => {
     const token = cookies.get("sessionId")
+    
     if (token) {
-        // delete token from cookies
-        cookies.delete("sessionId", {path: '/'})
-        // call api to delete session from backend server
+        cookies.delete("sessionId", { path: '/' })
+        const pageURL = `${PRIVATE_API_URL}/auth/v1/logout`;
+        await fetch(pageURL, {
+            method: 'DELETE',
+            headers: {
+                'cookie': `sessionId=${encodeURIComponent(token)}`,
+            },
+        });
     }
-
-    return {}
 }
