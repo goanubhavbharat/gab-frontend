@@ -74,24 +74,38 @@
                 </button>
             </li>
             <li class="flex flex-row justify-between items-center md:hidden">
-                <p class="text-lg text-[#06038D]">Hi, Guest</p>
+                <p class="text-lg text-[#06038D]">
+                    Hi, {$authStorage.firstName}
+                </p>
                 <div>
-                    <a
-                        onclick={() => {
-                            navOpen = false;
-                        }}
-                        href="/auth/login"
-                        class="text-lg border rounded-full px-3 py-2 bg-[#FF671F] text-white"
-                        aria-label="login user">Login</a
-                    >
-                    <a
-                        onclick={() => {
-                            navOpen = false;
-                        }}
-                        href="/auth/register"
-                        class="text-lg border rounded-full px-3 py-2 bg-[#046A38] text-white"
-                        aria-label="register user">Register</a
-                    >
+                    {#if $authStorage.loggedIn == false}
+                        <a
+                            onclick={() => {
+                                navOpen = false;
+                            }}
+                            href="/auth/login"
+                            class="text-lg border rounded-full px-3 py-2 bg-[#FF671F] text-white"
+                            aria-label="login user">Login</a
+                        >
+                        <a
+                            onclick={() => {
+                                navOpen = false;
+                            }}
+                            href="/auth/register"
+                            class="text-lg border rounded-full px-3 py-2 bg-[#046A38] text-white"
+                            aria-label="register user">Register</a
+                        >
+                    {:else}
+                        <button
+                            onclick={() => {
+                                userNavOpen = false;
+                                goto("/auth/logout");
+                            }}
+                            class="text-lg border rounded-full px-5 py-3 bg-red-600 text-white text-center hover:bg-red-800"
+                        >
+                            Logout
+                        </button>
+                    {/if}
                 </div>
             </li>
         </ul>
