@@ -1,0 +1,14 @@
+{
+  "total": 2,
+  "regions": [
+    {
+      "name": "North",
+      "states": [
+        {
+          "name": "Uttar Pradesh",
+          "slug": "uttar-pradesh"
+        }
+      ]
+    }
+  ]
+}
