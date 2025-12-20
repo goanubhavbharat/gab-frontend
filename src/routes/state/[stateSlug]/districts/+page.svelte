@@ -18,7 +18,7 @@
 </svelte:head>
 
 <section
-	id="districts_{data.params.state}"
+	id="districts_{data.params?.state}"
 	class="mx-1 md:mx-2 lg:mx-3 px-1 md:px-2 my-3 md:my-4 flex flex-col"
 >
 	<article class="text-[#4a5568] text-md/6">
