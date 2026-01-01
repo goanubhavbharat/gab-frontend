@@ -1,0 +1,26 @@
+import { PRIVATE_API_URL } from "$env/static/private";
+import type { LayoutServerLoad } from "./$types";
+
+export const load: LayoutServerLoad = async ({ url, params }) => {
+
+    const segments = url.pathname.split('/').filter(Boolean);
+    const lastPath = segments[segments.length - 1];
+
+    const response = await fetch(`${PRIVATE_API_URL}/gg/v1/districts/${params.districtSlug}/ui`)
+    const data = await response.json()
+
+    switch (response.status) {
+        case 200:
+            return {
+                name: data.district,
+                stateName: data.state,
+                title: data.title,
+                tabs: data.tabs,
+                lastPath: lastPath,
+                params: {
+                    district: params.districtSlug,
+                }
+            }
+        default:
+    }
+}

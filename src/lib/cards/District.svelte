@@ -14,8 +14,8 @@
 <div
     class="district-card flex flex-col rounded-lg bg-slate-200 shadow-md overflow-hidden relative shrink-0 group"
 >
-    <a href="/district/{district.slug}" class="block relative">
-        <div class="w-full aspect-video h-48 overflow-hidden relative">
+    <a href="/district/{district.slug}" class="block relative" rel="">
+        <div class="w-full aspect-video h-36 md:h-48 overflow-hidden relative">
             <img
                 class="object-cover w-full h-full rounded-t-lg shadow-lg group-hover:scale-110 transition-transform duration-500 border-b-4 border-[#FF671F]"
                 src="{PUBLIC_MEDIA_URL}{district.image}"
@@ -23,7 +23,7 @@
                 onerror={handleImgError}
             />
         </div>
-        <div class="p-4 bg-white rounded-b-lg flex flex-col items-center">
+        <div class="p-2 lg:p-4 bg-white rounded-b-lg flex flex-col items-center">
             <p
                 class="text-gray-900 font-semibold leading-tight text-md mb-1 flex items-center gap-3"
             >

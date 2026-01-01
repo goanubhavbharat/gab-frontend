@@ -1,13 +1,13 @@
 <script lang="ts">
-    import StateRegion from '$lib/cards/StateRegion.svelte';
-    import District from '$lib/cards/District.svelte';
-    import { PUBLIC_MEDIA_URL } from '$env/static/public';
+	import Region from "$lib/cards/Region.svelte";
+	import District from "$lib/cards/District.svelte";
+	import { PUBLIC_MEDIA_URL } from "$env/static/public";
 
 	let { data } = $props();
 
 	const handleImgError = (ev: any) => {
-        ev.target.src = "/images/main_image.jpeg"
-    }
+		ev.target.src = "/images/main_image.jpeg";
+	};
 </script>
 
 <svelte:head>
@@ -24,7 +24,7 @@
 >
 	<div class="lg:w-4/5 lg:pr-6 lg:border-r space-y-4 md:space-y-6">
 		<article id="short-note_{data.params?.state}">
-			<h3 class="font-medium text-base text-[#4338ca]">
+			<h3 class="font-semibold text-base text-[#4338ca]">
 				{data.heading}
 			</h3>
 			<p class="text-justify text-sm/6">
@@ -33,14 +33,14 @@
 		</article>
 		{#if data.regions}
 			<section id="state-regions_{data.params?.state}">
-				<h3 class="font-medium text-base text-[#4338ca]">
-					Cultural and Historical Regions of {data.name}
+				<h3 class="font-semibold text-base text-[#4338ca]">
+					Cultural and Historical Regions in {data.name}
 				</h3>
 				<div
 					class="py-1 flex flex-row overflow-x-auto gap-3 md:grid md:grid-cols-3 lg:grid-cols-4"
 				>
 					{#each data.regions as region, index}
-						<StateRegion rank={index+1} stateSlug={data.params?.state} region={region} />
+						<Region rank={index + 1} {region} />
 					{/each}
 				</div>
 			</section>
@@ -48,14 +48,14 @@
 
 		{#if data.districts}
 			<section id="top-districts_{data.params?.state}">
-				<h3 class="font-medium text-base text-[#4338ca]">
+				<h3 class="font-semibold text-base text-[#4338ca]">
 					Dream Destinations
 				</h3>
 				<div
 					class="py-1 flex flex-row overflow-x-auto gap-3 md:grid md:grid-cols-3 lg:grid-cols-4"
 				>
 					{#each data.districts as dist, index}
-						<District rank={index+1} district={dist} />
+						<District rank={index + 1} district={dist} />
 					{/each}
 				</div>
 			</section>
@@ -65,7 +65,7 @@
 		id="top-images_{data.params?.state}"
 		class="lg:w-1/5 mb-2 md:mb-0 md:pl-6"
 	>
-		<h3 class="hidden lg:flex font-medium text-base text-[#4338ca]">
+		<h3 class="hidden lg:flex font-semibold text-base text-[#4338ca]">
 			Images
 		</h3>
 		<div
