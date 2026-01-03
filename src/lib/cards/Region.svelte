@@ -16,7 +16,7 @@
         <div class="w-full aspect-video h-36 md:h-48 overflow-hidden relative">
             <img
                 class="object-cover w-full h-full rounded-t-lg shadow-lg group-hover:scale-110 transition-transform duration-500 border-b-4 border-[#FF671F]"
-                src="{PUBLIC_MEDIA_URL}{region.image}"
+                src="{PUBLIC_MEDIA_URL}{region.img}"
                 alt={region.imgAlt}
                 onerror={handleImgError}
             />

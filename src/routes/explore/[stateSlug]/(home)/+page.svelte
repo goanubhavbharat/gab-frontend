@@ -75,7 +75,7 @@
 			{#each data.images as img}
 				<div class="aspect-video w-60 lg:w-full shrink-0">
 					<img
-						src="{PUBLIC_MEDIA_URL}{img.image}"
+						src="{PUBLIC_MEDIA_URL}{img.img}"
 						alt={img.imgAlt}
 						class="aspect-video w-60 lg:w-full object-cover rounded-t-md"
 						onerror={handleImgError}
