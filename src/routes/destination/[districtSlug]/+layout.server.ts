@@ -13,7 +13,7 @@ export const load: LayoutServerLoad = async ({ url, params }) => {
         case 200:
             return {
                 name: data.district,
-                stateName: data.state,
+                state: data.state,
                 title: data.title,
                 tabs: data.tabs,
                 lastPath: lastPath,
