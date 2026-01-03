@@ -80,7 +80,7 @@
                                         <a
                                             data-sveltekit-reload
                                             id={st.name}
-                                            href="/state/{st.slug}"
+                                            href="/explore/{st.slug}"
                                             class="hover:font-medium hover:text-[#FF671F] p-1"
                                             aria-label="Go to {st.name} tourism page"
                                         >

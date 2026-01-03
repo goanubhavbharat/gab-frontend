@@ -1,5 +1,5 @@
-import type { PageServerLoad } from "./$types";
 import { PRIVATE_API_URL } from "$env/static/private";
+import type { PageServerLoad } from "./$types";
 
 export const load: PageServerLoad = async ({ params }) => {
 

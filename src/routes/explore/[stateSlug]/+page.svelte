@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Region from "$lib/cards/Region.svelte";
-	import District from "$lib/cards/District.svelte";
 	import { PUBLIC_MEDIA_URL } from "$env/static/public";
+	import District from "$lib/cards/District.svelte";
+    import StateRegion from "$lib/cards/StateRegion.svelte";
 
 	let { data } = $props();
 
@@ -40,7 +40,7 @@
 					class="py-1 flex flex-row overflow-x-auto gap-3 md:grid md:grid-cols-3 lg:grid-cols-4"
 				>
 					{#each data.regions as region, index}
-						<Region rank={index + 1} {region} />
+						<StateRegion rank={index + 1} stateSlug={data.params?.state} region={region} />
 					{/each}
 				</div>
 			</section>

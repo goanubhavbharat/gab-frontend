@@ -6,6 +6,10 @@ export const load: LayoutServerLoad = async ({ url, params }) => {
     const segments = url.pathname.split('/').filter(Boolean);
     const lastPath = segments[segments.length - 1];
 
+    if (params.regionSlug) {
+
+    }
+
     const response = await fetch(`${PRIVATE_API_URL}/gg/v1/states/${params.stateSlug}/ui`)
     const data = await response.json()
 
