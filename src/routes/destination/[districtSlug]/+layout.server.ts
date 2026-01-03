@@ -17,9 +17,6 @@ export const load: LayoutServerLoad = async ({ url, params }) => {
                 title: data.title,
                 tabs: data.tabs,
                 lastPath: lastPath,
-                params: {
-                    district: params.districtSlug,
-                }
             }
         default:
     }

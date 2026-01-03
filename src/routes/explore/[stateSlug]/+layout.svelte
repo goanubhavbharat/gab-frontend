@@ -7,7 +7,7 @@
 
 {#if !page.params?.regionSlug}
     <section
-        id="hero-{data.params?.state}"
+        id="hero-{page.params.stateSlug}"
         title="Background image with heading and short note for {data.name}"
         class="relative h-48 md:h-64 lg:h-96 mb-2"
         style="background-image: url(/images/main_image.jpeg); background-size: cover; background-position: center;"
@@ -24,7 +24,7 @@
     <Tabs
         tabs={data.tabs}
         lastPath={data.lastPath}
-        slug={data.params?.state}
+        slug={page.params.stateSlug}
         navigatePage={"explore"}
     />
 {/if}

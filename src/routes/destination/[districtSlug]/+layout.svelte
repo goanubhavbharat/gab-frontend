@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { page } from "$app/state";
     import Tabs from "$lib/components/Tabs.svelte";
 
     let { data, children } = $props();
@@ -12,7 +13,7 @@
 </nav>
 
 <section
-    id="hero-{data.params?.district}"
+    id="hero-{page.params.districtSlug}"
     title="Background image with heading and short note for {data.name}"
     class="relative h-48 md:h-64 lg:h-96 mb-2"
     style="background-image: url(/images/main_image.jpeg); background-size: cover; background-position: center;"
@@ -29,8 +30,8 @@
 <Tabs
     tabs={data.tabs}
     lastPath={data.lastPath}
-    slug={data.params?.district}
-    navigatePage={"district"}
+    slug={page.params.districtSlug}
+    navigatePage={"destination"}
 />
 
 {@render children?.()}

@@ -12,9 +12,6 @@ export const load: PageServerLoad = async ({ params }) => {
                 name: data.name,
                 districts: data.districts,
                 seo: data.seo,
-                params: {
-                    state: params.stateSlug,
-                }
             }
         default:
     }

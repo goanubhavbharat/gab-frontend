@@ -4,6 +4,7 @@
     import Transits from "$lib/cards/Transits.svelte";
     import HowToReach from "$lib/cards/HowToReach.svelte";
     import Timing from "$lib/cards/Timing.svelte";
+    import { page } from "$app/state";
 
     let { data } = $props();
 
@@ -22,13 +23,13 @@
 </svelte:head>
 
 <section
-    id="explore_{data.params?.district}"
+    id="explore_{page.params.districtSlug}"
     class="mx-1 md:mx-2 lg:mx-3 px-1 md:px-2 my-3 md:my-4 flex flex-col lg:flex-row"
 >
     <div class="lg:w-4/5 lg:pr-6 lg:border-r space-y-4 md:space-y-6">
         <!-- Article and list of images-->
         <div class="flex flex-col-reverse lg:flex-col space-y-4 md:space-y-6">
-            <article id="short-note_{data.params?.district}">
+            <article id="short-note_{page.params.districtSlug}">
                 <h3 class="font-semibold text-base text-[#4338ca]">
                     {data.heading}
                 </h3>
@@ -36,7 +37,7 @@
                     {data.note}
                 </p>
             </article>
-            <section id="top-images_{data.params?.district}" class="mb-2">
+            <section id="top-images_{page.params.districtSlug}" class="mb-2">
                 <h3
                     class="hidden lg:flex font-semibold text-base text-[#4338ca]"
                 >
@@ -95,7 +96,7 @@
         {/if}
     </div>
     <section
-        id="tips-{data.params?.district}"
+        id="tips_{page.params.districtSlug}"
         class="lg:w-1/5 mb-2 md:mb-0 md:pl-6"
     >
         <h3 class="font-semibold text-base text-[#4338ca]">

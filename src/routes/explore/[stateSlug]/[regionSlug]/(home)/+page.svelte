@@ -1,7 +1,7 @@
 <script lang="ts">
+    import { page } from "$app/state";
 	import { PUBLIC_MEDIA_URL } from "$env/static/public";
-	import District from "$lib/cards/District.svelte";
-    import StateRegion from "$lib/cards/StateRegion.svelte";
+    import District from "$lib/cards/District.svelte";
 
 	let { data } = $props();
 
@@ -12,18 +12,18 @@
 
 <svelte:head>
 	<title>
-		Experience {data.name} Tourism | Top Destinations, Events & More
+		Experience {data.name} Tourism | Top Places, Events & More
 	</title>
 	<meta name="description" content={data.seo.desc} />
 	<meta name="keywords" content={data.seo.kw} />
 </svelte:head>
 
 <section
-	id="explore_{data.params?.state}"
+	id="explore_{page.params.regionSlug}"
 	class="mx-1 md:mx-2 lg:mx-3 px-1 md:px-2 my-3 md:my-4 flex flex-col-reverse lg:flex-row"
 >
 	<div class="lg:w-4/5 lg:pr-6 lg:border-r space-y-4 md:space-y-6">
-		<article id="short-note_{data.params?.state}">
+		<article id="short-note_{page.params.regionSlug}">
 			<h3 class="font-semibold text-base text-[#4338ca]">
 				{data.heading}
 			</h3>
@@ -31,23 +31,9 @@
 				{data.note}
 			</p>
 		</article>
-		{#if data.regions}
-			<section id="state-regions_{data.params?.state}">
-				<h3 class="font-semibold text-base text-[#4338ca]">
-					Cultural and Historical Regions in {data.name}
-				</h3>
-				<div
-					class="py-1 flex flex-row overflow-x-auto gap-3 md:grid md:grid-cols-3 lg:grid-cols-4"
-				>
-					{#each data.regions as region, index}
-						<StateRegion rank={index + 1} stateSlug={data.params?.state} region={region} />
-					{/each}
-				</div>
-			</section>
-		{/if}
 
 		{#if data.districts}
-			<section id="top-districts_{data.params?.state}">
+			<section id="top-districts_{page.params.regionSlug}">
 				<h3 class="font-semibold text-base text-[#4338ca]">
 					Dream Destinations
 				</h3>
@@ -62,7 +48,7 @@
 		{/if}
 	</div>
 	<section
-		id="top-images_{data.params?.state}"
+		id="top-images_{page.params.regionSlug}"
 		class="lg:w-1/5 mb-2 md:mb-0 md:pl-6"
 	>
 		<h3 class="hidden lg:flex font-semibold text-base text-[#4338ca]">

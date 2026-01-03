@@ -1,5 +1,5 @@
-import type { PageServerLoad } from "./$types";
 import { PRIVATE_API_URL } from "$env/static/private";
+import type { PageServerLoad } from "./$types";
 
 export const load: PageServerLoad = async ({ params }) => {
 
@@ -16,9 +16,6 @@ export const load: PageServerLoad = async ({ params }) => {
                 regions: data?.districtRegions,
                 places: null,
                 seo: data.seo,
-                params: {
-                    district: params.districtSlug,
-                }
             }
         default:
     }

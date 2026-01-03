@@ -5,17 +5,17 @@
 	let { data } = $props();
 </script>
 
-<svelte:head>
+<!-- <svelte:head>
 	<title>
 		Top {data.districts.length ? data.districts.length  : ""} Destinations To Visit In {data.name}
 		| Destinations to Visit, Places to Visit
 	</title>
 	<meta name="description" content={data.seo.desc} />
 	<meta name="keywords" content={data.seo.kw} />
-</svelte:head>
+</svelte:head> -->
 
 <section
-	id="districts_{page.params.stateSlug}"
+	id="districts_{page.params.regionSlug}"
 	class="mx-1 md:mx-2 lg:mx-3 px-1 md:px-2 my-3 md:my-4 flex flex-col"
 >
 	<article class="text-[#4a5568] text-md/6">
@@ -24,11 +24,11 @@
 			>{data.name}</span
 		>.
 	</article>
-	{#if data.districts && data.districts.length > 0}
+	<!-- {#if data.districts && data.districts.length > 0}
 		<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 mt-3">
 			{#each data.districts as dist, index}
 				<District rank={index + 1} district={dist} />
 			{/each}
 		</div>
-	{/if}
+	{/if} -->
 </section>

@@ -7,7 +7,21 @@ export const load: LayoutServerLoad = async ({ url, params }) => {
     const lastPath = segments[segments.length - 1];
 
     if (params.regionSlug) {
+        const response = await fetch(`${PRIVATE_API_URL}/gg/v1/states-regions/${params.regionSlug}/ui`)
+        const data = await response.json()
 
+        switch (response.status) {
+            case 200:
+                return {
+                    name: data.stateRegion,
+                    state: data.state,
+                    title: data.title,
+                    tabs: data.tabs,
+                    lastPath: lastPath,
+                }
+            default:
+                return {}
+        }
     }
 
     const response = await fetch(`${PRIVATE_API_URL}/gg/v1/states/${params.stateSlug}/ui`)
@@ -20,10 +34,8 @@ export const load: LayoutServerLoad = async ({ url, params }) => {
                 title: data.title,
                 tabs: data.tabs,
                 lastPath: lastPath,
-                params: {
-                    state: params.stateSlug,
-                }
             }
         default:
+            return {}
     }
 }
