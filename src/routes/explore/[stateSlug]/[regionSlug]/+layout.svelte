@@ -15,7 +15,7 @@
 <section
     id="hero-{page.params?.regionSlug}"
     title="Background image with heading and short note for {data.name}"
-    class="relative h-48 md:h-64 lg:h-96 mb-2"
+    class="relative h-48 md:h-64 lg:h-132 mb-2"
     style="background-image: url(/images/main_image.jpeg); background-size: cover; background-position: center;"
 >
     <div class="absolute inset-0 content-end pb-0">

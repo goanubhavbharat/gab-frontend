@@ -12,7 +12,7 @@ export const load: LayoutServerLoad = async ({ url, params }) => {
     switch (response.status) {
         case 200:
             return {
-                name: data.district,
+                district: data.district,
                 state: data.state,
                 title: data.title,
                 tabs: data.tabs,

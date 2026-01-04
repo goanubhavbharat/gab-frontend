@@ -1,6 +1,7 @@
 <script lang="ts">
-    import Tabs from "$lib/components/Tabs.svelte";
     import { page } from "$app/state";
+    import { PUBLIC_MEDIA_URL } from "$env/static/public";
+    import Tabs from "$lib/components/Tabs.svelte";
 
     let { data, children } = $props();
 </script>
@@ -8,9 +9,9 @@
 {#if !page.params?.regionSlug}
     <section
         id="hero-{page.params.stateSlug}"
-        title="Background image with heading and short note for {data.name}"
-        class="relative h-48 md:h-64 lg:h-96 mb-2"
-        style="background-image: url(/images/main_image.jpeg); background-size: cover; background-position: center;"
+        title="Background image with heading and short note for {data.state.name}"
+        class="relative h-48 md:h-64 lg:h-132 mb-2"
+        style="background-image: url({PUBLIC_MEDIA_URL}{data.state.img}); background-size: cover; background-position: center; alt={data.state.imgAlt};"
     >
         <div class="absolute inset-0 content-end pb-0">
             <h1
