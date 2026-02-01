@@ -1,0 +1,1 @@
+export const env={"PUBLIC_MEDIA_URL":"http://localhost:8080/files/"}
