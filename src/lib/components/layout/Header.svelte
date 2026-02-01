@@ -5,7 +5,6 @@
     import regions from "$lib/data/regions.json";
 
     export let navOpen = false;
-    export let userNavOpen = false;
     export let submenus: Record<string, boolean> = {};
 
     // toggle submenu by key
@@ -96,7 +95,7 @@
 
             <li class="relative">
                 <button
-                    class="text-lg flex items-center"
+                    class="header-options-list flex items-center"
                     onclick={() => {}}
                     aria-label="explore india by states"
                 >
@@ -106,140 +105,15 @@
 
             <li class="relative">
                 <button
-                    class="text-lg flex items-center"
+                    class="header-options-list flex items-center"
                     onclick={() => {}}
                     aria-label="explore india by states"
                 >
                     Essentials
                 </button>
             </li>
-            <li class="flex flex-row justify-between items-center md:hidden">
-                <p class="text-lg text-[#06038D]">
-                    Hi, {$authStorage.firstName}
-                </p>
-                <div>
-                    {#if $authStorage.loggedIn == false}
-                        <a
-                            onclick={() => {
-                                navOpen = false;
-                            }}
-                            href="/auth/login"
-                            class="text-lg border rounded-full px-3 py-2 bg-[#FF671F] text-white"
-                            aria-label="login user">Login</a
-                        >
-                        <a
-                            onclick={() => {
-                                navOpen = false;
-                            }}
-                            href="/auth/register"
-                            class="text-lg border rounded-full px-3 py-2 bg-[#046A38] text-white"
-                            aria-label="register user">Register</a
-                        >
-                    {:else}
-                        <button
-                            onclick={() => {
-                                userNavOpen = false;
-                                goto("/auth/logout");
-                            }}
-                            class="text-lg border rounded-full px-5 py-3 bg-red-600 text-white text-center hover:bg-red-800"
-                        >
-                            Logout
-                        </button>
-                    {/if}
-                </div>
-            </li>
         </ul>
     </nav>
-
-    <section
-        class="hidden md:flex flex-row w-full justify-end gap-x-6 items-center"
-    >
-        <button
-            class="border rounded-full px-4 py-2"
-            onclick={() => {
-                userNavOpen = !userNavOpen;
-            }}>Hi, {$authStorage.firstName}</button
-        >
-        <div></div>
-    </section>
-
-    {#if userNavOpen}
-        <div
-            class="fixed inset-0 z-50 flex justify-end transition-all ease-in-out"
-        >
-            <!-- Background Overlay -->
-            <button
-                aria-label="close drawer"
-                onclick={() => (userNavOpen = false)}
-                class="absolute inset-0 bg-gray-300 opacity-50 backdrop-blur-sm transition-opacity"
-            ></button>
-
-            <!-- Drawer Panel -->
-            <div class="relative h-full w-full md:w-2/3 lg:w-1/4 bg-white">
-                <div class="p-6 flex flex-col h-full overflow-y-auto">
-                    <div class="flex justify-between items-center">
-                        <h2 class="text-xl font-medium">Welcome,</h2>
-                        <button
-                            aria-label="close drawer"
-                            class="text-gray-500 hover:text-gray-800"
-                            onclick={() => (userNavOpen = false)}
-                        >
-                            <i class="fa-solid fa-times text-2xl"></i>
-                        </button>
-                    </div>
-                    <h3 class="text-lg font-medium">
-                        {$authStorage.firstName}
-                    </h3>
-                    <p class="text-gray-600 text-base">
-                        Manage your account, view bookings, and personalize your
-                        travel experience.
-                    </p>
-                    <div class="flex flex-col gap-3 mt-6">
-                        {#if $authStorage.loggedIn == false}
-                            <a
-                                onclick={() => (userNavOpen = false)}
-                                href="/auth/login"
-                                class="text-lg border rounded-full px-5 py-3 bg-[#FF671F] text-white text-center hover:bg-[#e85b16]"
-                            >
-                                Login
-                            </a>
-                            <a
-                                onclick={() => (userNavOpen = false)}
-                                href="/auth/register"
-                                class="text-lg border rounded-full px-5 py-3 bg-[#046A38] text-white text-center"
-                            >
-                                Register
-                            </a>
-                        {:else}
-                            <!-- <a
-                                onclick={() => (userNavOpen = false)}
-                                href="/in/{username}"
-                                class="text-lg border rounded-full px-5 py-3 bg-[#FF671F] text-white text-center"
-                            >
-                                Profile
-                            </a>
-                            <a
-                                onclick={() => (userNavOpen = false)}
-                                href="/in/{username}/trips"
-                                class="text-lg border rounded-full px-5 py-3 bg-[#046A38] text-white text-center"
-                            >
-                                Trips
-                            </a> -->
-                            <button
-                                onclick={() => {
-                                    userNavOpen = false;
-                                    goto("/auth/logout");
-                                }}
-                                class="text-lg border rounded-full px-5 py-3 bg-red-600 text-white text-center hover:bg-red-800"
-                            >
-                                Logout
-                            </button>
-                        {/if}
-                    </div>
-                </div>
-            </div>
-        </div>
-    {/if}
 </header>
 
 <style>
