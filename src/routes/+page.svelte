@@ -1,11 +1,11 @@
-<script>
+<script lang="ts">
   import Logo from '$lib/components/Logo.svelte';
 </script>
 
 <main class="page">
   <div class="overlay">
     <section class="card">
-      <Logo width={260} className="logo" />
+      <Logo/>
 
       <h1>We’re building something exciting</h1>
 
