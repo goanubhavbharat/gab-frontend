@@ -26,10 +26,10 @@
 	<div class="lg:w-4/5 lg:pr-6 lg:border-r space-y-4 md:space-y-6">
 		<article id="short-note_{page.params.stateSlug}">
 			<h3 class="font-semibold text-base text-[#4338ca]">
-				{data.heading}
+				{data.info.heading}
 			</h3>
 			<p class="text-justify text-sm/6">
-				{data.note}
+				{data.info.note}
 			</p>
 		</article>
 		{#if data.regions}
