@@ -2,157 +2,176 @@
   import Logo from '$lib/components/Logo.svelte';
 </script>
 
-<main class="page">
-  <div class="overlay">
-    <section class="card">
-      <Logo/>
+<section class="hero">
+  <div class="hero-overlay">
+    <nav class="navbar">
+      <div class="nav-logo">
+        <Logo />
+      </div>
+    </nav>
 
-      <h1>We’re building something exciting</h1>
-
-      <p class="subtitle">
-        Our platform is launching soon.<br />
-        Stay tuned — big things are coming.
+    <div class="hero-content">
+      <h1 class="hero-title">Discover the Soul of India</h1>
+      <p class="hero-subtitle">
+        Curated travel experiences that connect you to India's rich heritage,
+        vibrant culture, and breathtaking destinations.
       </p>
+      <a href="mailto:contactus@goanubhavbharat.com" class="hero-btn">
+        <i class="fas fa-envelope"></i> contactus@goanubhavbharat.com
+      </a>
+    </div>
 
-      <div class="divider"></div>
-
-      <!-- <p class="notify">
-        Want to be the first to know?
-      </p>
-
-      <form
-        class="form"
-        on:submit|preventDefault={() => alert('Thanks!')}
-      >
-        <input
-          type="email"
-          placeholder="Enter your email"
-          required
-        />
-        <button type="submit">Notify me</button>
-      </form> -->
-
-      <footer>
-        © {new Date().getFullYear()} • All rights reserved
-      </footer>
-    </section>
+    <footer class="hero-footer">
+      &copy; {new Date().getFullYear()} GoAnubhavBharat. All rights reserved.
+    </footer>
   </div>
-</main>
+</section>
 
 <style>
-  .page {
+  :global(body) {
+    margin: 0;
+    padding: 0;
+  }
+
+  .hero {
     min-height: 100vh;
     background-image: url('/images/maha-kumbh.webp');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    background-attachment: fixed;
   }
 
-  /* Dark overlay for readability */
-  .overlay {
+  .hero-overlay {
     min-height: 100vh;
-    display: grid;
-    place-items: center;
     background: linear-gradient(
-      rgba(0, 0, 0, 0.45),
-      rgba(0, 0, 0, 0.55)
+      160deg,
+      rgba(6, 3, 141, 0.7) 0%,
+      rgba(0, 0, 0, 0.5) 50%,
+      rgba(4, 106, 56, 0.6) 100%
     );
-  }
-
-  .card {
-    background: #ffffff;
-    border-radius: 20px;
-    padding: 3rem 2.5rem;
-    max-width: 520px;
-    width: 100%;
-    text-align: center;
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
-    animation: fadeUp 0.6s ease-out;
-  }
-
-  h1 {
-    font-size: 1.8rem;
-    margin: 0.5rem 0;
-    color: #06038d;
-  }
-
-  .subtitle {
-    color: #444;
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 0.5rem;
-  }
-
-  .divider {
-    height: 1px;
-    background: linear-gradient(
-      to right,
-      transparent,
-      #ddd,
-      transparent
-    );
-    margin: 2rem 0;
-  }
-
-  /* .notify {
-    font-weight: 600;
-    margin-bottom: 0.75rem;
-  }
-
-  .form {
     display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
+    flex-direction: column;
   }
 
-  input {
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .nav-logo {
+    width: 220px;
+  }
+
+  .nav-logo :global(svg) {
+    width: 100%;
+    height: auto;
+  }
+
+
+.hero-content {
     flex: 1;
-    padding: 0.75rem 1rem;
-    border-radius: 999px;
-    border: 1px solid #ccc;
-    font-size: 0.95rem;
-    outline: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
   }
 
-  input:focus {
-    border-color: #06038d;
-  }
-
-  button {
-    padding: 0.75rem 1.25rem;
-    border-radius: 999px;
-    border: none;
-    background: linear-gradient(
-      135deg,
-      #ff671f,
-      #046a38
-    );
+  .hero-title {
+    font-family: 'Yatra-One', serif;
+    font-size: 3.5rem;
     color: #fff;
-    font-weight: 600;
-    cursor: pointer;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    margin: 0 0 1rem;
+    line-height: 1.2;
+    max-width: 700px;
+    animation: fadeUp 0.8s ease-out;
   }
 
-  button:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
-  } */
+  .hero-subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 600px;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.8s ease-out 0.15s both;
+  }
 
-  footer {
-    margin-top: 2rem;
+  .hero-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, #ff671f, #e85d1a);
+    color: #fff;
+    padding: 0.9rem 2rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    animation: fadeUp 0.8s ease-out 0.3s both;
+  }
+
+  .hero-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 103, 31, 0.4);
+  }
+
+  .hero-footer {
+    text-align: center;
+    padding: 1.25rem;
+    color: rgba(255, 255, 255, 0.4);
     font-size: 0.8rem;
-    color: #888;
   }
 
   @keyframes fadeUp {
     from {
       opacity: 0;
-      transform: translateY(12px);
+      transform: translateY(20px);
     }
     to {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 2.4rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+    }
+
+    .nav-logo {
+      width: 160px;
+    }
+
+}
+
+  @media (max-width: 480px) {
+    .hero-title {
+      font-size: 2rem;
+    }
+
+    .navbar {
+      padding: 1rem;
+    }
+
+    .nav-logo {
+      width: 140px;
+    }
+
+    .hero-btn {
+      font-size: 0.85rem;
+      padding: 0.75rem 1.5rem;
     }
   }
 </style>
