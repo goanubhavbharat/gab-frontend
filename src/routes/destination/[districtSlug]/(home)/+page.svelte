@@ -3,6 +3,7 @@
     import Transits from "$lib/cards/Transits.svelte";
     import HowToReach from "$lib/cards/HowToReach.svelte";
     import Timing from "$lib/cards/Timing.svelte";
+    import PlaceCard from "$lib/cards/Place.svelte";
     import { page } from "$app/state";
 
     let { data } = $props();
@@ -72,9 +73,9 @@
                 <div
                     class="py-1 flex flex-row overflow-x-auto gap-3 md:grid md:grid-cols-3 lg:grid-cols-4"
                 >
-                    <!-- {#each data.places as place, index}
+                    {#each data.places as place, index}
                         <PlaceCard {place} rank={index + 1} />
-                    {/each} -->
+                    {/each}
                 </div>
             </div>
         {/if}

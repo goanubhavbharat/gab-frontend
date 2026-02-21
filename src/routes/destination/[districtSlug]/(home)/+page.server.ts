@@ -14,7 +14,7 @@ export const load: PageServerLoad = async ({ params, parent }) => {
                 name: data.name,
                 info: data.info,
                 images: data.images,
-                places: null,
+                places: data.topPlaces,
                 seo: parentData.seo,
             }
         default:
