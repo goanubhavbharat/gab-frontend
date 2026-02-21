@@ -108,7 +108,7 @@
         <div
             class="col-span-full mt-4 border-t pt-4 text-center text-sm text-gray-600"
         >
-            &copy; 2025 GoAnubhavBharat — Built with
+            &copy; 2026 GoAnubhavBharat — Built with
             <span class="text-red-500">❤️</span> and pride in India
             <span class="ml-1">🇮🇳</span>
         </div>

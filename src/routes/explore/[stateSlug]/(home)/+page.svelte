@@ -2,7 +2,6 @@
     import { page } from "$app/state";
 	import { PUBLIC_MEDIA_URL } from "$env/static/public";
 	import District from "$lib/cards/District.svelte";
-    import StateRegion from "$lib/cards/StateRegion.svelte";
 
 	let { data } = $props();
 
@@ -26,32 +25,23 @@
 	<div class="lg:w-4/5 lg:pr-6 lg:border-r space-y-4 md:space-y-6">
 		<article id="short-note_{page.params.stateSlug}">
 			<h3 class="font-semibold text-base text-[#4338ca]">
-				{data.heading}
+				{data.info.heading}
 			</h3>
 			<p class="text-justify text-sm/6">
-				{data.note}
+				{data.info.note}
 			</p>
 		</article>
-		{#if data.regions}
-			<section id="state-regions_{page.params.stateSlug}">
-				<h3 class="font-semibold text-base text-[#4338ca]">
-					Cultural and Historical Regions in {data.name}
-				</h3>
-				<div
-					class="py-1 flex flex-row overflow-x-auto gap-3 md:grid md:grid-cols-3 lg:grid-cols-4"
-				>
-					{#each data.regions as region, index}
-						<StateRegion rank={index + 1} stateSlug={page.params.stateSlug} region={region} />
-					{/each}
-				</div>
-			</section>
-		{/if}
 
 		{#if data.districts}
 			<section id="top-districts_{page.params.stateSlug}">
 				<h3 class="font-semibold text-base text-[#4338ca]">
 					Dream Destinations
 				</h3>
+				{#if data.districts.length === 0}
+					<p class="text-sm text-gray-600">
+						No destinations data available for this state.
+					</p>
+				{:else}
 				<div
 					class="py-1 flex flex-row overflow-x-auto gap-3 md:grid md:grid-cols-3 lg:grid-cols-4"
 				>
@@ -59,6 +49,7 @@
 						<District rank={index + 1} district={dist} />
 					{/each}
 				</div>
+				{/if}
 			</section>
 		{/if}
 	</div>

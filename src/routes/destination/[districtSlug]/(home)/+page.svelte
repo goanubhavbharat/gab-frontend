@@ -1,6 +1,5 @@
 <script lang="ts">
     import { PUBLIC_MEDIA_URL } from "$env/static/public";
-    import Region from "$lib/cards/Region.svelte";
     import Transits from "$lib/cards/Transits.svelte";
     import HowToReach from "$lib/cards/HowToReach.svelte";
     import Timing from "$lib/cards/Timing.svelte";
@@ -31,10 +30,10 @@
         <div class="flex flex-col-reverse lg:flex-col space-y-4 md:space-y-6">
             <article id="short-note_{page.params.districtSlug}">
                 <h3 class="font-semibold text-base text-[#4338ca]">
-                    {data.heading}
+                    {data.info.heading}
                 </h3>
                 <p class="text-justify text-sm/6">
-                    {data.note}
+                    {data.info.note}
                 </p>
             </article>
             <section id="top-images_{page.params.districtSlug}" class="mb-2">
@@ -64,21 +63,6 @@
                 </div>
             </section>
         </div>
-
-        {#if data.regions}
-            <div class="lg:flex mb-6 flex-col">
-                <h3 class="text-base font-semibold text-[#4338ca]">
-                    Cultural and Historical Regions in {data.name}
-                </h3>
-                <div
-                    class="py-1 flex flex-row overflow-x-auto gap-3 md:grid md:grid-cols-3 lg:grid-cols-4"
-                >
-                    {#each data.regions as reg, index}
-                        <Region rank={index + 1} region={reg} />
-                    {/each}
-                </div>
-            </div>
-        {/if}
 
         {#if data.places }
             <div class="mb-6">
